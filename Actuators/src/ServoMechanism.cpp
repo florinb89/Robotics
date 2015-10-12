@@ -11,7 +11,8 @@
 namespace Actuators {
 
 ServoMechanism::ServoMechanism() {
-
+	minAngle = 0;
+	maxAngle = 180;
 }
 
 ServoMechanism::ServoMechanism(void (*servoWrite)(unsigned int), void (*delayFunction)(unsigned int), unsigned int minAngle, unsigned int maxAngle){

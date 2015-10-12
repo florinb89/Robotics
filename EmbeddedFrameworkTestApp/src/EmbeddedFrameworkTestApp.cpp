@@ -7,9 +7,15 @@
 //============================================================================
 
 #include <iostream>
+
+#include "ServoMechanism.h"
+
 using namespace std;
+using namespace Actuators;
 
 int main() {
+
+
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }
