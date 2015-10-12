@@ -1,0 +1,12 @@
+21:58:43 **** Build of configuration Debug for project Actuators_old ****
+make all 
+Building target: Actuators_old
+Invoking: Cross G++ Linker
+g++  -o "Actuators_old"  ./src/ServoMechanism.o ./src/ServoMotor.o   
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make: *** [Actuators_old] Error 1
+
+21:58:44 Build Finished (took 109ms)
+
