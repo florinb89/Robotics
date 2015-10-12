@@ -3,6 +3,7 @@
 	<name>EmbeddedFrameworkTestApp</name>
 	<comment></comment>
 	<projects>
+		<project>Actuators</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

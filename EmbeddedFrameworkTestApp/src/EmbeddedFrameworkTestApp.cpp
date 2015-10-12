@@ -8,14 +8,15 @@
 
 #include <iostream>
 
-#include "ServoMechanism.h"
+#include "ServoMechanismTest.h"
 
 using namespace std;
-using namespace Actuators;
+using namespace Test;
 
 int main() {
+	ServoMechanismTest servoTest;
+	servoTest.TestServoMechanismRotate();
 
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	return 0;
 }
