@@ -9,6 +9,8 @@
 #include <iostream>
 
 #include "ServoMechanismTest.h"
+#include "PortCommunication.h"
+#include "CommunicationTest.h"
 
 using namespace std;
 using namespace Test;
@@ -16,6 +18,10 @@ using namespace Test;
 int main() {
 	ServoMechanismTest servoTest;
 	servoTest.TestServoMechanismRotate();
+
+	/*CommunicationTest comm;
+	comm.TestPortWrite(10, 500);*/
+
 
 
 	return 0;

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>EmbeddedFrameworkTestApp</name>
+	<name>Communication</name>
 	<comment></comment>
 	<projects>
-		<project>Actuators</project>
-		<project>Communication</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

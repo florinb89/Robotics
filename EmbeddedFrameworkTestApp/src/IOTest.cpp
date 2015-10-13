@@ -29,4 +29,8 @@ void IOTest::Delay(unsigned int delay) {
 	cout << "Delay value: " << delay << endl;
 }
 
+void IOTest::DigitalWrite(unsigned short port, unsigned short value) {
+	cout << "Digital Write port: " << port << "value: " << value;
+}
+
 } /* namespace IO */

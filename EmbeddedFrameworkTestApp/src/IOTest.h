@@ -16,6 +16,7 @@ public:
 	virtual ~IOTest();
 	static void ServoWrite(unsigned int angle);
 	static void Delay(unsigned int delay);
+	static void DigitalWrite(unsigned short port, unsigned short value);
 };
 
 } /* namespace IO */
