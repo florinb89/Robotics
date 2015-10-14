@@ -40,6 +40,6 @@ public:
 		}
 };
 
-} /* namespace Communcation */
+} /* namespace Communication */
 
 #endif /* PORTMESSAGE_H_ */

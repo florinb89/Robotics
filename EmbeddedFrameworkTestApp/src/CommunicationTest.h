@@ -1,7 +1,7 @@
 /*
- * CommuncationTest.h
+ * CommunicationTest.h
  *
- *  Created on: Oct 13, 2015
+ *  Created on: Oct 14, 2015
  *      Author: florin
  */
 
@@ -14,9 +14,10 @@ class CommunicationTest {
 public:
 	CommunicationTest();
 	virtual ~CommunicationTest();
-    void TestPortWrite(unsigned short pin, unsigned short value);
+	void PortSendTest(unsigned short port, unsigned short value);
+	void PortReadTest(unsigned short port);
 };
 
-}
+} /* namespace Test */
 
-#endif /* TEST_H_ */
+#endif /* COMMUNICATIONTEST_H_ */

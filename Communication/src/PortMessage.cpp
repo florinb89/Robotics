@@ -19,4 +19,4 @@ PortMessage::~PortMessage() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace Communcation */
+} /* namespace Communication */

@@ -9,7 +9,6 @@
 #include <iostream>
 
 #include "ServoMechanismTest.h"
-#include "PortCommunication.h"
 #include "CommunicationTest.h"
 
 using namespace std;
@@ -19,9 +18,10 @@ int main() {
 	ServoMechanismTest servoTest;
 	servoTest.TestServoMechanismRotate();
 
-	/*CommunicationTest comm;
-	comm.TestPortWrite(10, 500);*/
+	CommunicationTest comm;
+	comm.PortSendTest(10, 500);
 
+	comm.PortReadTest(10);
 
 
 	return 0;

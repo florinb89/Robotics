@@ -1,29 +1,45 @@
 /*
- * CommuncationTest.cpp
+ * CommunicationTest.cpp
  *
- *  Created on: Oct 13, 2015
+ *  Created on: Oct 14, 2015
  *      Author: florin
  */
 
 #include "CommunicationTest.h"
-#include "IOTest.h"
 #include "PortCommunication.h"
 #include "PortMessage.h"
+#include "IOTest.h"
 
 using namespace IO;
-using namespace Communication;
 
 namespace Test {
 
-
-CommunicationTest::CommunicationTest(){}
-CommunicationTest::~CommunicationTest(){}
-
-void CommunicationTest::TestPortWrite(unsigned short pin, unsigned short value) {
-	IOTest io;
-
-	CommunicationTest comm;
+CommunicationTest::CommunicationTest() {
+	// TODO Auto-generated constructor stub
 
 }
 
-} /* Test*/
+CommunicationTest::~CommunicationTest() {
+	// TODO Auto-generated destructor stub
+}
+
+void CommunicationTest::PortSendTest(unsigned short port,
+		unsigned short value) {
+	IOTest io;
+	Communication::PortCommunication comm(&io.DigitalWrite);
+	Communication::PortMessage message;
+	message.SetPort(port);
+	message.SetData(value);
+	comm.Send(message);
+
+}
+
+void CommunicationTest::PortReadTest(unsigned short port)
+{
+	IOTest io;
+	Communication::PortCommunication comm(&io.DigitalRead);
+	Communication::PortMessage message = comm.Read(10);
+
+}
+
+} /* namespace Test */

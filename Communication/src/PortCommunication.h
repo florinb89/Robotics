@@ -14,15 +14,20 @@ namespace Communication {
 
 class PortCommunication {
 private:
-	bool isInitialized;
+	bool canRead;
+	bool canWrite;
 	void (*writeFunction)(unsigned short,unsigned short);
+	unsigned short (*readFunction)(unsigned short);
 public:
 	PortCommunication();
 	PortCommunication(void (*writeFunction)(unsigned short, unsigned short));
+	PortCommunication(unsigned short (*readFunction)(unsigned short));
+	PortCommunication(void (*writeFunction)(unsigned short, unsigned short), unsigned short (*readFunction)(unsigned short));
 	virtual ~PortCommunication();
 	void Send(PortMessage message);
+	PortMessage Read(unsigned short port);
 };
 
-} /* namespace Communcation */
+} /* namespace Communication */
 
 #endif /* PORTCOMMUNICATION_H_ */

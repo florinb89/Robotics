@@ -11,7 +11,8 @@
 namespace Communication {
 
 PortCommunication::PortCommunication() {
-	isInitialized = false;
+	canRead = false;
+	canWrite = false;
 }
 
 PortCommunication::~PortCommunication() {
@@ -20,11 +21,39 @@ PortCommunication::~PortCommunication() {
 
 PortCommunication::PortCommunication(void (*writeFunction)(unsigned short pin, unsigned short value)) {
 	this->writeFunction = writeFunction;
-	isInitialized = true;
+	canWrite = true;
+}
+
+PortCommunication::PortCommunication(unsigned short (*readFunction)(unsigned short)){
+	this->readFunction = readFunction;
+	canRead = true;
+}
+
+PortCommunication::PortCommunication(void (*writeFunction)(unsigned short, unsigned short), unsigned short (*readFunction)(unsigned short)){
+	this->writeFunction = writeFunction;
+	this->readFunction = readFunction;
+	canRead = true;
+	canWrite = true;
+}
+
+PortMessage PortCommunication::Read(unsigned short port)
+{
+	unsigned short value = 0;
+	PortMessage portMessage;
+	portMessage.SetPort(port);
+
+	if (canRead)
+	{
+		value = readFunction(port);
+
+	}
+	portMessage.SetData(value);
+
+	return portMessage;
 }
 
 void PortCommunication::Send(PortMessage message) {
-	if (isInitialized)
+	if (canWrite)
 		this->writeFunction(message.GetPort(), message.GetData());
 
 
@@ -32,4 +61,4 @@ void PortCommunication::Send(PortMessage message) {
 
 }
 
-/* namespace Communcation */
+/* namespace Communication */

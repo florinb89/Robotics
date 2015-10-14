@@ -30,7 +30,14 @@ void IOTest::Delay(unsigned int delay) {
 }
 
 void IOTest::DigitalWrite(unsigned short port, unsigned short value) {
-	cout << "Digital Write port: " << port << "value: " << value;
+	cout << "Digital Write port: " << port << " value: " << value << endl;
+}
+
+unsigned short IOTest::DigitalRead(unsigned short port){
+	unsigned short testValue = 100;
+	cout << "Digital Read port: " << port << " value: " << testValue << endl;
+	return testValue;
+
 }
 
 } /* namespace IO */
