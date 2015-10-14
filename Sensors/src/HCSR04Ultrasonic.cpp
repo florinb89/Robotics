@@ -9,13 +9,29 @@
 
 namespace Sensors {
 
+HCSR04Communication::HCSR04Communication(PortCommunication trigger, PortCommunication pulse, void (*delay)(unsigned short)){
+	this->pulse = pulse;
+	this->trigger = trigger;
+	this->delay = delay;
+
+}
+
 HCSR04Ultrasonic::HCSR04Ultrasonic() {
-	// TODO Auto-generated constructor stub
+	isInitialized = false;
+}
+
+HCSR04Ultrasonic::HCSR04Ultrasonic(unsigned short port, HCSR04Communication hcsr04Communication)
+{
+	this->communication = hcsr04Communication;
+	this->port = port;
+	isInitialized = true;
 
 }
 
 HCSR04Ultrasonic::~HCSR04Ultrasonic() {
 	// TODO Auto-generated destructor stub
 }
+
+
 
 } /* namespace Sensors */

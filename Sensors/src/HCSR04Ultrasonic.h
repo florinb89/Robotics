@@ -14,14 +14,27 @@ using namespace Communication;
 
 namespace Sensors {
 
+class HCSR04Communication
+{
+private:
+	PortCommunication trigger;
+	PortCommunication pulse;
+	void (*delay)(unsigned short value);
+public:
+	HCSR04Communication(PortCommunication trigger, PortCommunication pulse, void (*delay)(unsigned short));
+};
+
 class HCSR04Ultrasonic {
 private:
 	PortCommunication portCommunication;
-
+	bool isInitialized;
+	HCSR04Communication communication;
+	unsigned short port;
 public:
 	HCSR04Ultrasonic();
-	HCSR04Ultrasonic(unsigned short port, PortCommunication portCommunication);
+	HCSR04Ultrasonic(unsigned short port, HCSR04Communication hcsr04Communication);
 	virtual ~HCSR04Ultrasonic();
+
 };
 
 } /* namespace Sensors */
