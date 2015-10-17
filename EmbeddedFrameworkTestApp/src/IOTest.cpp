@@ -40,4 +40,12 @@ unsigned short IOTest::DigitalRead(unsigned short port){
 
 }
 
+unsigned long IOTest::PulseIn(unsigned short pin, unsigned short value) {
+	unsigned long duration = 34;
+	cout << "Pulse in port: " << pin << " value: " << value << endl;
+	return duration;
+}
+
 } /* namespace IO */
+
+

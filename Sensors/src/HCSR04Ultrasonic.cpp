@@ -9,9 +9,11 @@
 
 namespace Sensors {
 
+HCSR04Communication::HCSR04Communication(){}
+
 HCSR04Communication::HCSR04Communication(void (triggerFunction) (unsigned short, unsigned short),
 		unsigned long (*pulseFunction) (unsigned short, unsigned short),
-		void (*delay) (unsigned short))
+		void (*delay) (unsigned int))
 {
 	this->triggerFunction = triggerFunction;
 	this->pulseFunction = pulseFunction;
@@ -19,6 +21,27 @@ HCSR04Communication::HCSR04Communication(void (triggerFunction) (unsigned short,
 }
 
 HCSR04Communication::~HCSR04Communication(){}
+
+unsigned long HCSR04Communication::Pulse(unsigned short echoPin)
+{
+	pulseFunction(echoPin, 1);
+}
+void HCSR04Communication::Trigger(unsigned short triggerPin, bool value)
+{
+	if (value)
+	{
+		triggerFunction(triggerPin, 1);
+	}
+	else
+	{
+		triggerFunction(triggerPin, 0);
+	}
+
+}
+void HCSR04Communication::Delay(unsigned short microseconds)
+{
+	delay(microseconds);
+}
 
 HCSR04Ultrasonic::HCSR04Ultrasonic(){
 	isInitialized = false;

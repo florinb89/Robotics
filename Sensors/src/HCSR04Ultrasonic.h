@@ -18,12 +18,13 @@ class HCSR04Communication
 private:
 void (*triggerFunction) (unsigned short, unsigned short);
 unsigned long (*pulseFunction)(unsigned short, unsigned short);
-void (*delay)(unsigned short);
+void (*delay)(unsigned int);
 
 public:
+    HCSR04Communication();
 	HCSR04Communication(void (*triggerFunction)(unsigned short pin,unsigned short value),
 			unsigned long (*pulseFunction)(unsigned short pin, unsigned short value),
-	void (*delay)(unsigned short));
+	void (*delay)(unsigned int));
 	virtual ~HCSR04Communication();
 	unsigned long Pulse(unsigned short echoPin);
 	void Trigger(unsigned short triggerPin, bool value);

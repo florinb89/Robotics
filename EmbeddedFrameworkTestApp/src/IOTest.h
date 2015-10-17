@@ -18,6 +18,7 @@ public:
 	static void Delay(unsigned int delay);
 	static void DigitalWrite(unsigned short port, unsigned short value);
 	static unsigned short DigitalRead(unsigned short port);
+	static unsigned long PulseIn(unsigned short pin, unsigned short value);
 };
 
 } /* namespace IO */
