@@ -10,6 +10,7 @@
 
 #include "ServoMechanismTest.h"
 #include "CommunicationTest.h"
+#include "UltrasonicTest.h"
 
 using namespace std;
 using namespace Test;
@@ -23,6 +24,8 @@ int main() {
 
 	comm.PortReadTest(10);
 
+	UltrasonicTest ultrasonicTest;
+	ultrasonicTest.TestHCSR04Ultrasonic();
 
 	return 0;
 }

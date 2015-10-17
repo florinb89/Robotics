@@ -5,6 +5,7 @@
 	<projects>
 		<project>Actuators</project>
 		<project>Communication</project>
+		<project>Sensors</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

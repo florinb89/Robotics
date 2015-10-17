@@ -9,29 +9,51 @@
 
 namespace Sensors {
 
-HCSR04Communication::HCSR04Communication(PortCommunication trigger, PortCommunication pulse, void (*delay)(unsigned short)){
-	this->pulse = pulse;
-	this->trigger = trigger;
+HCSR04Communication::HCSR04Communication(void (triggerFunction) (unsigned short, unsigned short),
+		unsigned long (*pulseFunction) (unsigned short, unsigned short),
+		void (*delay) (unsigned short))
+{
+	this->triggerFunction = triggerFunction;
+	this->pulseFunction = pulseFunction;
 	this->delay = delay;
-
 }
 
-HCSR04Ultrasonic::HCSR04Ultrasonic() {
+HCSR04Communication::~HCSR04Communication(){}
+
+HCSR04Ultrasonic::HCSR04Ultrasonic(){
 	isInitialized = false;
 }
 
-HCSR04Ultrasonic::HCSR04Ultrasonic(unsigned short port, HCSR04Communication hcsr04Communication)
+HCSR04Ultrasonic::~HCSR04Ultrasonic() {
+
+}
+
+HCSR04Ultrasonic::HCSR04Ultrasonic(unsigned short pulsePort, unsigned short triggerPort, HCSR04Communication hcsr04Communication)
 {
 	this->communication = hcsr04Communication;
-	this->port = port;
+	this->pulsePort = pulsePort;
+	this->triggerPort = triggerPort;
 	isInitialized = true;
 
 }
 
-HCSR04Ultrasonic::~HCSR04Ultrasonic() {
-	// TODO Auto-generated destructor stub
+double HCSR04Ultrasonic::Read() {
+	/* The following trigPin/echoPin cycle is used to determine the
+	 distance of the nearest object by bouncing soundwaves off of it. */
+
+	 this->communication.Trigger(triggerPort, false);
+	 this->communication.Delay(2);
+
+	 this->communication.Trigger(triggerPort, true);
+	 this->communication.Delay(10);
+
+	 this->communication.Trigger(triggerPort, false);
+
+	 unsigned long duration = this->communication.Pulse(pulsePort);
+     //Calculate the distance (in cm) based on the speed of sound.
+	 double distance = duration/58.2;
+
+	 return distance;
 }
-
-
 
 } /* namespace Sensors */
