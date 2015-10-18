@@ -17,7 +17,12 @@ using namespace Actuators;
 namespace Components {
 
 class UltrasonicServoHead {
+private:
+	HCSR04Ultrasonic sensor;
+	ServoMechanism servo;
+	LED led;
 public:
+	UltrasonicServoHead();
 	UltrasonicServoHead(HCSR04Ultrasonic sensor, ServoMechanism servo, LED led);
 	virtual ~UltrasonicServoHead();
 	void Scan(unsigned short stepAngle);

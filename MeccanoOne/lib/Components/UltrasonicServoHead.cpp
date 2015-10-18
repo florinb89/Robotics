@@ -10,7 +10,7 @@
 namespace Components {
 
 UltrasonicServoHead::UltrasonicServoHead() {
-	// TODO Auto-generated constructor stub
+
 
 }
 
@@ -24,6 +24,13 @@ UltrasonicServoHead::~UltrasonicServoHead() {
 }
 
 void UltrasonicServoHead::Scan(unsigned short stepAngle) {
+	servo.Rotate(0, 0);
+
+	for (int angle = 0; angle <= 180; angle+=stepAngle)
+	{
+		servo.Rotate(angle);
+
+	}
 }
 
 } /* namespace Components */
