@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir ./MeccanoOne/lib/Actuators
+cp -a Actuators/src/. ./MeccanoOne/lib/Actuators

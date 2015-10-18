@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir ./MeccanoOne/lib/Actuators
+cp -a Actuators/src/. ./MeccanoOne/lib/Actuators
+
+mkdir ./MeccanoOne/lib/Sensors
+cp -a Sensors/src/. ./MeccanoOne/lib/Sensors
+
+mkdir ./MeccanoOne/lib/Communication
+cp -a Communication/src/. ./MeccanoOne/lib/Communication
+
