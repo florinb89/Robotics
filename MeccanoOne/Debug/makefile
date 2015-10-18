@@ -10,9 +10,14 @@ RM := rm -rf
 -include sources.mk
 -include src/subdir.mk
 -include lib/Sensors/subdir.mk
+-include lib/Components/subdir.mk
 -include lib/Communication/subdir.mk
 -include lib/Actuators/subdir.mk
 -include arduino/subdir.mk
+-include .pioenvs/uno/src/subdir.mk
+-include .pioenvs/uno/Sensors/subdir.mk
+-include .pioenvs/uno/FrameworkArduino/subdir.mk
+-include .pioenvs/uno/Actuators/subdir.mk
 -include subdir.mk
 -include objects.mk
 
