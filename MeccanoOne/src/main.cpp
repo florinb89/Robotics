@@ -1,5 +1,6 @@
 #include "ServoMechanism.h"
 #include "HCSR04Ultrasonic.h"
+#include "UltrasonicServoHead.h"
 
 /*#include "../arduino/Arduino.h"*/
 #include "Arduino.h"
@@ -22,6 +23,7 @@ void DelayMicroseconds(unsigned int value);
 
 HCSR04Communication ultrasonicComm(&DigitalWrite, &Pulse, &DelayMicroseconds);
 HCSR04Ultrasonic neckSenzor(NECK_ULTRASONIC_TRIGGER_PIN, NECK_ULTRASONIC_PULSE_PIN, ultrasonicComm);
+
 
 void setup()
 {

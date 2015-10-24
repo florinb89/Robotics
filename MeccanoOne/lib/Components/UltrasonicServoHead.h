@@ -23,15 +23,18 @@ private:
 	LED led;
 	unsigned short minDetectedValue;
 	unsigned short maxDetectedValue;
-	bool isDetectionInitialized;
+	bool hasDetectionCallback;
 	bool isScanning;
+	bool isReverseRotating;
+	bool isInitialized;
 	unsigned short currentAngle;
 	unsigned short stepAngle;
 	unsigned short minRotationAngle;
 	unsigned short maxRotationAngle;
 
 	void (*detectedCallback)(double distance);
-	unsigned short GetAngle();
+	unsigned short GetNextRotationAngle();
+
 public:
 	UltrasonicServoHead();
 	UltrasonicServoHead(HCSR04Ultrasonic sensor, ServoMechanism servo, LED led);
