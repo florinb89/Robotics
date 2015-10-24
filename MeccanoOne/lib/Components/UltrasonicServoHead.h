@@ -21,11 +21,26 @@ private:
 	HCSR04Ultrasonic sensor;
 	ServoMechanism servo;
 	LED led;
+	unsigned short minDetectedValue;
+	unsigned short maxDetectedValue;
+	bool isDetectionInitialized;
+	bool isScanning;
+	unsigned short currentAngle;
+	unsigned short stepAngle;
+	unsigned short minRotationAngle;
+	unsigned short maxRotationAngle;
+
+	void (*detectedCallback)(double distance);
+	unsigned short GetAngle();
 public:
 	UltrasonicServoHead();
 	UltrasonicServoHead(HCSR04Ultrasonic sensor, ServoMechanism servo, LED led);
 	virtual ~UltrasonicServoHead();
-	void Scan(unsigned short stepAngle);
+	void StartScan(unsigned short stepAngle);
+	void StopScan();
+	void Scan();
+	void SetupDetectionRange(unsigned short minDetectedValue, unsigned short maxDetectedValue);
+	void NotifyDetection(void (*detectedCallback)(double distance));
 };
 
 } /* namespace Components */

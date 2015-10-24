@@ -10,27 +10,52 @@
 namespace Components {
 
 UltrasonicServoHead::UltrasonicServoHead() {
-
+	isScanning = false;
 
 }
 
 UltrasonicServoHead::UltrasonicServoHead(HCSR04Ultrasonic sensor,
 		ServoMechanism servo, LED led) {
+	this->servo = servo;
+	this->sensor = sensor;
+	this->led = led;
 
+	this->minRotationAngle = servo.GetMinAngle();
+	this->maxRotationAngle = servo.GetMaxAngle();
 }
 
 UltrasonicServoHead::~UltrasonicServoHead() {
-	// TODO Auto-generated destructor stub
+
 }
 
-void UltrasonicServoHead::Scan(unsigned short stepAngle) {
-	servo.Rotate(0, 0);
+void UltrasonicServoHead::StartScan(unsigned short stepAngle) {
+	this->stepAngle = stepAngle;
+	currentAngle = servo.GetMinAngle();
 
-	for (int angle = 0; angle <= 180; angle+=stepAngle)
+	servo.Rotate(currentAngle);
+	isScanning = true;
+}
+
+void UltrasonicServoHead::StopScan() {
+	isScanning = false;
+}
+
+void UltrasonicServoHead::Scan() {
+	if (isScanning)
 	{
-		servo.Rotate(angle);
-
+		unsigned short angle =
 	}
+}
+
+void UltrasonicServoHead::SetupDetectionRange(unsigned short minDetectedValue,
+		unsigned short maxDetectedValue) {
+}
+
+unsigned short UltrasonicServoHead::GetAngle() {
+}
+
+void UltrasonicServoHead::NotifyDetection(
+		void (*detectedCallback)(double distance)) {
 }
 
 } /* namespace Components */

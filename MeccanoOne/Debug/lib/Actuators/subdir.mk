@@ -4,14 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../lib/Actuators/LED.cpp \
 ../lib/Actuators/ServoMechanism.cpp \
 ../lib/Actuators/ServoMotor.cpp 
 
 OBJS += \
+./lib/Actuators/LED.o \
 ./lib/Actuators/ServoMechanism.o \
 ./lib/Actuators/ServoMotor.o 
 
 CPP_DEPS += \
+./lib/Actuators/LED.d \
 ./lib/Actuators/ServoMechanism.d \
 ./lib/Actuators/ServoMotor.d 
 
