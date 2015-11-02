@@ -24,7 +24,7 @@ HCSR04Communication::~HCSR04Communication(){}
 
 unsigned long HCSR04Communication::Pulse(unsigned short echoPin)
 {
-	pulseFunction(echoPin, 1);
+	return pulseFunction(echoPin, 1);
 }
 void HCSR04Communication::Trigger(unsigned short triggerPin, bool value)
 {
