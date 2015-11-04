@@ -66,10 +66,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="HeadComponent.h" />
+    <ClInclude Include="UltrasonicHead.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HeadComponent.cpp" />
+    <ClCompile Include="UltrasonicHead.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Actuators\Actuators.vcxproj">
