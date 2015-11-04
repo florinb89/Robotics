@@ -30,19 +30,17 @@ namespace Components
 		servo.Rotate(0, 20);
 		direction = DIRECTION_RIGHT; // to 180
 	}
-	void UltrasonicHead::Scan(){
+	void UltrasonicHead::Scan(bool fixed){
 		if (isScanning){
-			currentAngle = GetRotationAngle();
-
-			servo.Rotate(currentAngle, 0);
-			
+			if (!fixed){
+				currentAngle = GetRotationAngle();
+				servo.Rotate(currentAngle, 0);
+			}
 
 			double distance = SensorScan();
 
 			if (hasCallback)
 				callback(distance);
-
-
 		}
 	}
 	void UltrasonicHead::StopScanning(){

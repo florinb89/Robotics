@@ -40,7 +40,8 @@ namespace Components
 		~UltrasonicHead();
 
 		void StartScanning(unsigned short step);
-		void Scan();
+		void Scan(bool fixed);
+		
 		void StopScanning();
 		void RegisterCallback(void(*callback)(double distance));
 
